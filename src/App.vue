@@ -3,22 +3,40 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
+Layout Builder
+I want a QHeader
+I want a QFooter
+I want a left-side QDrawer
+I want a right-side QDrawer
+I want navigation tabs (requires QHeader)
+Our third-party tools use cookies, which are necessary for its functioning and required to achieve the purposes illustrated in the cookie policy.
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <q-layout view="hHh lpR fFf">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          </q-avatar>
+          My App
+        </q-toolbar-title>
+        <q-tabs>
+            <q-route-tab to="/" label="Home" />
+            <q-route-tab to="/about" label="About" />
+        </q-tabs>
+      </q-toolbar>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
 
-  <RouterView />
+    </q-header>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+
+  </q-layout>
 </template>
+
 
 <style scoped>
 header {
